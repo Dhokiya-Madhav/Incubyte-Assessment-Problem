@@ -48,4 +48,19 @@ public class CraftTest {
         Assert.assertEquals('e', craft.direction);
     }
 
+    @Test
+    public void testCraftForwardBackwardOnAxisZ() {
+        craft.direction = 'u';
+        craft.movespacecraft('f');
+        Assert.assertEquals(0, craft.x);
+        Assert.assertEquals(0, craft.y);
+        Assert.assertEquals(1, craft.z);
+        Assert.assertEquals('u', craft.direction);
+
+        craft.movespacecraft('b');
+        Assert.assertEquals(0, craft.x);
+        Assert.assertEquals(0, craft.y);
+        Assert.assertEquals(0, craft.z);
+        Assert.assertEquals('u', craft.direction);
+    }
 }
