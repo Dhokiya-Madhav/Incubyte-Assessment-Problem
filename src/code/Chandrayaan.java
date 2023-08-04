@@ -1,4 +1,5 @@
 package code;
+
 public class Chandrayaan {
     int x = 0, y = 0, z = 0;
     char direction = 'n';
@@ -9,6 +10,7 @@ public class Chandrayaan {
         this.z = z;
         this.direction = direction;
     }
+
     public void movespacecraft(char d) {
         switch (direction) {
             case 'u':
@@ -97,9 +99,5 @@ public class Chandrayaan {
     public void displayPosition() {
         System.out.print(x + " " + y + " " + z + "\t");
         System.out.println(direction);
-    }
-
-    public String showMsg() {
-        return "Hii";
     }
 }

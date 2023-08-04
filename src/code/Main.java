@@ -2,30 +2,33 @@ package code;
 public class Main {
     
     public static void main(String[] args) {
-        char[] commands = {'u','r','d','b','f'};
-        char direction='s';
-        Chandrayaan craft = new Chandrayaan(0,0,0,direction);
+        char[] commands = {'f','b','l','u'};
+        char dir='s';
+        Chandrayaan craft = new Chandrayaan(0,0,0,dir);
         for (int i = 0; i < commands.length; i++) {
             char move = commands[i];
             switch (move) {
                 case 'l':
-                    direction = craft.takeLeft(direction);
+                    dir = craft.takeLeft(dir);
                     break;
                 case 'r':
-                    direction = craft.takeRight(direction);
+                    dir = craft.takeRight(dir);
                     break;
                 case 'u':
-                    direction = 'u';
+                    dir = 'u';
                     craft.direction='u';
                     break;
                 case 'd':
-                    direction = 'd';
+                    dir = 'd';
                     craft.direction='d';
                     break;
                 case 'f':
                 case 'b':
                     craft.movespacecraft(move);
                     break;
+                default:
+                    System.out.println("Invalid Command");
+                    
             }
             craft.displayPosition();
         }
