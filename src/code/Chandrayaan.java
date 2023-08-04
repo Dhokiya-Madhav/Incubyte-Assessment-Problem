@@ -1,8 +1,9 @@
+package code;
 public class Chandrayaan {
     int x = 0, y = 0, z = 0;
     char direction = 'n';
 
-    Chandrayaan(int x,int y,int z,char direction){
+    public Chandrayaan(int x,int y,int z,char direction){
         this.x = x;
         this.y = y;
         this.z = z;
@@ -96,5 +97,9 @@ public class Chandrayaan {
     public void displayPosition() {
         System.out.print(x + " " + y + " " + z + "\t");
         System.out.println(direction);
+    }
+
+    public String showMsg() {
+        return "Hii";
     }
 }
