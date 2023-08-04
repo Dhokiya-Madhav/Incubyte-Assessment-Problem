@@ -1,8 +1,8 @@
 package code;
 
 public class Chandrayaan {
-    int x = 0, y = 0, z = 0;
-    char direction = 'n';
+    public int x = 0, y = 0, z = 0;
+    public char direction = 'n';
 
     public Chandrayaan(int x,int y,int z,char direction){
         this.x = x;
