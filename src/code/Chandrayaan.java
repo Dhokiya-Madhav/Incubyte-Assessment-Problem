@@ -1,59 +1,61 @@
 package code;
 
-public class Chandrayaan {
-    public int x = 0, y = 0, z = 0;
-    public char direction = 'n';
+import javax.swing.plaf.synth.SynthSpinnerUI;
 
-    public Chandrayaan(int x,int y,int z,char direction){
+public class Chandrayaan {
+    public int x,y, z;
+    public char direction;
+
+    public Chandrayaan(int x, int y, int z, char direction) {
         this.x = x;
         this.y = y;
         this.z = z;
         this.direction = direction;
     }
 
-    public void movespacecraft(char d) {
+    public void moveSpaceCraft(char move) {
         switch (direction) {
             case 'u':
-                if (d == 'f')
+                if (move == 'f')
                     z++;
-                else if (d == 'b')
+                else if (move == 'b')
                     z--;
                 break;
             case 'd':
-                if (d == 'f')
+                if (move == 'f')
                     z++;
-                else if (d == 'b')
+                else if (move == 'b')
                     z--;
                 break;
             case 'n':
-                if (d == 'f')
+                if (move == 'f')
                     y++;
-                else if (d == 'b')
+                else if (move == 'b')
                     y--;
                 break;
             case 's':
-                if (d == 'f')
+                if (move == 'f')
                     y++;
-                else if (d == 'b')
+                else if (move == 'b')
                     y--;
                 break;
             case 'e':
-                if (d == 'f')
+                if (move == 'f')
                     x++;
-                else if (d == 'b')
+                else if (move == 'b')
                     x--;
                 break;
             case 'w':
-                if (d == 'f')
+                if (move == 'f')
                     x++;
-                else if (d == 'b')
+                else if (move == 'b')
                     x--;
                 break;
         }
     }
 
-    public char takeLeft(char d) {
-        switch (d) {
+    public char turnLeft(char currentDirection) {
+        switch (currentDirection) {
             case 'n':
                 direction = 'w';
                 break;
@@ -66,7 +68,7 @@ public class Chandrayaan {
             case 'e':
                 direction = 'n';
                 break;
-            case 'u': 
+            case 'u':
             case 'd':
                 direction = 'w';
                 break;
@@ -74,8 +76,8 @@ public class Chandrayaan {
         return direction;
     }
 
-    public char takeRight(char d) {
-        switch (d) {
+    public char turnRight(char currentDirection) {
+        switch (currentDirection) {
             case 'n':
                 direction = 'e';
                 break;
@@ -94,10 +96,39 @@ public class Chandrayaan {
                 break;
         }
         return direction;
+    }
+
+    public void craftController(char[] commands) {
+        for (int i = 0; i < commands.length; i++) {
+            char command = commands[i];
+            switch (command) {
+                case 'l':
+                    direction = turnLeft(direction);
+                    break;
+                case 'r':
+                    direction = turnRight(direction);
+                    break;
+                case 'u':
+                    direction = 'u';
+                    break;
+                case 'd':
+                    direction = 'd';
+                    break;
+                case 'f':
+                case 'b':
+                    moveSpaceCraft(command);
+                    break;
+                default:
+                    System.out.println("Invalid Command");
+            }
+            displayPosition();
+        }
     }
 
     public void displayPosition() {
+        System.out.println("Final position: ");
         System.out.print(x + " " + y + " " + z + "\t");
+        System.out.println("Final direction: ");
         System.out.println(direction);
     }
 }
