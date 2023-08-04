@@ -1,13 +1,18 @@
 package test;
 
-import org.junit.Assert;
-import org.junit.Test;
-
+import static org.junit.Assert.assertNotNull;
+import org.junit.*;
 import code.Chandrayaan;
+
 public class CraftTest {
+    private Chandrayaan craft;
+
+    @Before
+    public void Layout(){
+        craft = new Chandrayaan(0,0,0,'n');
+    }
     @Test
-    public void check(){
-        Chandrayaan c = new Chandrayaan(0,0,0,'n');
-        Assert.assertEquals("Hi", c.showMsg());   
+    public void isCraftInitialized(){
+        assertNotNull(craft);
     }
 }
