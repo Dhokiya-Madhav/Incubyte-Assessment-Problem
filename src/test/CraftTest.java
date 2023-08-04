@@ -63,4 +63,45 @@ public class CraftTest {
         Assert.assertEquals(0, craft.z);
         Assert.assertEquals('u', craft.direction);
     }
+    @Test
+    public void testCraftRotateLeft(){
+        craft.direction = 'n';
+        craft.takeLeft(craft.direction);
+        Assert.assertEquals(0, craft.x);
+        Assert.assertEquals(0, craft.y);
+        Assert.assertEquals(0, craft.z);
+        Assert.assertEquals('w', craft.direction);
+
+        craft.takeLeft(craft.direction);
+        Assert.assertEquals(0, craft.x);
+        Assert.assertEquals(0, craft.y);
+        Assert.assertEquals(0, craft.z);
+        Assert.assertEquals('s', craft.direction);
+
+        craft.takeLeft(craft.direction);
+        Assert.assertEquals(0, craft.x);
+        Assert.assertEquals(0, craft.y);
+        Assert.assertEquals(0, craft.z);
+        Assert.assertEquals('e', craft.direction);
+
+        craft.takeLeft(craft.direction);
+        Assert.assertEquals(0, craft.x);
+        Assert.assertEquals(0, craft.y);
+        Assert.assertEquals(0, craft.z);
+        Assert.assertEquals('n', craft.direction);
+
+        craft.direction = 'u';
+        craft.takeLeft(craft.direction);
+        Assert.assertEquals(0, craft.x);
+        Assert.assertEquals(0, craft.y);
+        Assert.assertEquals(0, craft.z);
+        Assert.assertEquals('w', craft.direction);
+
+        craft.direction = 'd';
+        craft.takeLeft(craft.direction);
+        Assert.assertEquals(0, craft.x);
+        Assert.assertEquals(0, craft.y);
+        Assert.assertEquals(0, craft.z);
+        Assert.assertEquals('w', craft.direction);
+    }
 }
